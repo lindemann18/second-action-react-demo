@@ -1,0 +1,16 @@
+name: Test Project
+on: push # define the event that should trigger this event to run. Workflow dispatch makes sure we can manually trigger this workflow
+jobs: # the JOBS that will be performed,
+  test: # you can name them as you want
+    runs-on: ubuntu-latest # defines the runner
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3 # some actions requrie some configuration, uses the with keyword
+      - name: Install nodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci # is a bit safer and you don't install breaking versions
+      - name: run tests
+        run: npm test
