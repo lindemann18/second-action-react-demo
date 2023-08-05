@@ -1,5 +1,5 @@
 name: Desploy project
-on: push # define the event that should trigger this event to run. Workflow dispatch makes sure we can manually trigger this workflow
+on: [push, workflow_dispatch] # define the event that should trigger this event to run. Workflow dispatch makes sure we can manually trigger this workflow
 jobs: # the JOBS that will be performed,
   test: # you can name them as you want
     runs-on: ubuntu-latest # defines the runner
