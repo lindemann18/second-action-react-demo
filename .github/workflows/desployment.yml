@@ -15,6 +15,7 @@ jobs: # the JOBS that will be performed,
       - name: run tests
         run: npm test
   deploy:
+    needs: test # this job needs the job test to finish to start. [onejob, secondjob]
     runs-on: ubuntu-latest # every job gets its own runner, its own virtual machine that's totally isolated from other machines
     steps:
       - name: Get the code
